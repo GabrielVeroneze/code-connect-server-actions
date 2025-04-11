@@ -47,8 +47,16 @@
 
 .rodape {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 1rem;
+}
+
+.curtidas {
+    color: #888888;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: center;
 }
 
 .expandido {
