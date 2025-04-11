@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { IconButton } from '@/components/IconButton'
 import { Avatar } from '@/components/Avatar'
 import { Post } from '@/types/Post'
 import styles from './CardPost.module.css'
@@ -31,6 +32,15 @@ export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
                 )}
             </section>
             <footer className={styles.rodape}>
+                <div>
+                    <form>
+                        <IconButton
+                            icon="/icons/thumb-up.svg"
+                            alt="Ícone de curtir"
+                        />
+                    </form>
+                    <p className={styles.curtidas}>{post.likes}</p>
+                </div>
                 <Avatar
                     imageSrc={post.author.avatar}
                     name={post.author.username}
