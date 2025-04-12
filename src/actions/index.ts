@@ -1,5 +1,6 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import { Post } from '@/types/Post'
 import db from 'prisma/db'
 
@@ -14,4 +15,7 @@ export async function incrementThumbsUp(post: Post) {
             },
         },
     })
+
+    revalidatePath('/')
+    revalidatePath(`/${post.slug}`)
 }
