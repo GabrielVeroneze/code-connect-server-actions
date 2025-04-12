@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { IconButton } from '@/components/IconButton'
 import { Avatar } from '@/components/Avatar'
+import { incrementThumbsUp } from '@/actions'
 import { Post } from '@/types/Post'
 import styles from './CardPost.module.css'
 
@@ -11,6 +12,8 @@ interface CardPostProps {
 }
 
 export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
+    const submitThumbsUp = incrementThumbsUp.bind(null, post)
+
     return (
         <article className={`${styles.card} ${styles[tamanho]}`}>
             <header className={styles.cabecalho}>
@@ -33,7 +36,7 @@ export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
             </section>
             <footer className={styles.rodape}>
                 <div>
-                    <form>
+                    <form action={submitThumbsUp}>
                         <IconButton
                             icon="/icons/thumb-up.svg"
                             alt="Ícone de curtir"
