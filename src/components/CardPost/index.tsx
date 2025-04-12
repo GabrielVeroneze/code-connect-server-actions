@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { IconButton } from '@/components/IconButton'
 import { Avatar } from '@/components/Avatar'
 import { incrementThumbsUp } from '@/actions'
 import { Post } from '@/types/Post'
+import { ThumbsUpButton } from './ThumbsUpButton'
+import Image from 'next/image'
+import Link from 'next/link'
 import styles from './CardPost.module.css'
 
 interface CardPostProps {
@@ -37,10 +37,7 @@ export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
             <footer className={styles.rodape}>
                 <div>
                     <form action={submitThumbsUp}>
-                        <IconButton
-                            icon="/icons/thumb-up.svg"
-                            alt="Ícone de curtir"
-                        />
+                        <ThumbsUpButton />
                     </form>
                     <p className={styles.curtidas}>{post.likes}</p>
                 </div>
