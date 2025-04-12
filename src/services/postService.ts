@@ -33,7 +33,7 @@ export async function getAllPosts(page: number, searchTerm: string): Promise<Pag
             take: perPage,
             skip: skip,
             where: where,
-            orderBy: { createdAt: 'desc' },
+            orderBy: { id: 'desc' },
             include: {
                 author: true,
             },
