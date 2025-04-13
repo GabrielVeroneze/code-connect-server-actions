@@ -1,7 +1,8 @@
+import { ButtonHTMLAttributes } from 'react'
 import Image from 'next/image'
 import styles from './IconButton.module.css'
 
-interface IconButtonProps {
+interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon: string
     alt: string
 }
