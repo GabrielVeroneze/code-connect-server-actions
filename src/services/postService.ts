@@ -36,6 +36,7 @@ export async function getAllPosts(page: number, searchTerm: string): Promise<Pag
             orderBy: { id: 'desc' },
             include: {
                 author: true,
+                comments: true,
             },
         })
 
@@ -55,6 +56,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
             },
             include: {
                 author: true,
+                comments: true,
             },
         })
 
