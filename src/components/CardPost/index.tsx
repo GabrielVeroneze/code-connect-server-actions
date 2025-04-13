@@ -1,4 +1,5 @@
 import { Avatar } from '@/components/Avatar'
+import { ModalComment } from '@/components/ModalComment'
 import { incrementThumbsUp } from '@/actions'
 import { Post } from '@/types/Post'
 import { ThumbsUpButton } from './ThumbsUpButton'
@@ -38,8 +39,12 @@ export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
                 <div>
                     <form action={submitThumbsUp}>
                         <ThumbsUpButton />
+                        <p className={styles.curtidas}>{post.likes}</p>
                     </form>
-                    <p className={styles.curtidas}>{post.likes}</p>
+                    <div>
+                        <ModalComment />
+                        <p>{post.comments.length}</p>
+                    </div>
                 </div>
                 <Avatar
                     imageSrc={post.author.avatar}
