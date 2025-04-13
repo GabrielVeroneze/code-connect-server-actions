@@ -1,4 +1,5 @@
 import { Author } from '@/types/Author'
+import { Comment } from '@/types/Comment'
 
 export interface Post {
     id: number
@@ -8,5 +9,6 @@ export interface Post {
     body: string
     markdown: string
     author: Author
-    likes: number;
+    comments: Comment[]
+    likes: number
 }
