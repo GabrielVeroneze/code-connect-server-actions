@@ -4,8 +4,8 @@ import { Post } from '@/types/Post'
 export interface Comment {
     id: number
     text: string
-    author: Author
-    post: Post
+    author?: Author
+    post?: Post
     parent?: Comment | null
-    children: Comment[]
+    children?: Comment[]
 }
