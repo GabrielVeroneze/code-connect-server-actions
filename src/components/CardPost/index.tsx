@@ -36,14 +36,14 @@ export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
                 )}
             </section>
             <footer className={styles.rodape}>
-                <div>
+                <div className={styles.interacoes}>
                     <form action={submitThumbsUp}>
                         <ThumbsUpButton />
-                        <p className={styles.curtidas}>{post.likes}</p>
+                        <p className={styles.contador}>{post.likes}</p>
                     </form>
                     <div>
                         <ModalComment />
-                        <p>{post.comments.length}</p>
+                        <p className={styles.contador}>{post.comments.length}</p>
                     </div>
                 </div>
                 <Avatar
