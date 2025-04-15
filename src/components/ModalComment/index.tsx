@@ -7,13 +7,21 @@ import { IconButton } from '@/components/IconButton'
 import { ModalHandle } from '@/types/ModalHandle'
 import styles from './ModalComment.module.css'
 
-export const ModalComment = () => {
+interface ModalCommentProps {
+    action: (formData: FormData) => Promise<void>
+}
+
+export const ModalComment = ({ action }: ModalCommentProps) => {
     const modalRef = useRef<ModalHandle>(null)
 
     return (
         <>
             <Modal ref={modalRef}>
-                <form className={styles.form}>
+                <form
+                    className={styles.form}
+                    action={action}
+                    onSubmit={() => modalRef.current?.closeModal()}
+                >
                     <h2 className={styles.titulo}>
                         Deixe seu comentário sobre o post:
                     </h2>
