@@ -1,6 +1,6 @@
 import { Avatar } from '@/components/Avatar'
 import { ModalComment } from '@/components/ModalComment'
-import { incrementThumbsUp } from '@/actions'
+import { incrementThumbsUp, postComment } from '@/actions'
 import { Post } from '@/types/Post'
 import { ThumbsUpButton } from './ThumbsUpButton'
 import Image from 'next/image'
@@ -14,6 +14,7 @@ interface CardPostProps {
 
 export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
     const submitThumbsUp = incrementThumbsUp.bind(null, post)
+    const submitComment = postComment.bind(null, post)
 
     return (
         <article className={`${styles.card} ${styles[tamanho]}`}>
@@ -42,7 +43,7 @@ export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
                         <p className={styles.contador}>{post.likes}</p>
                     </form>
                     <div>
-                        <ModalComment />
+                        <ModalComment action={submitComment} />
                         <p className={styles.contador}>{post.comments.length}</p>
                     </div>
                 </div>
