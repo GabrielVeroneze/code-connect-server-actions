@@ -27,10 +27,16 @@ export async function postComment(post: Post, formData: FormData) {
         },
     })
 
+    if (!author) {
+        throw new Error('Autor não encontrado.')
+    }
+
+    const text = formData.get('text') as string
+
     await db.comment.create({
         data: {
-            text: formData.get('text'),
-            authorId: author?.id,
+            text: text,
+            authorId: author.id,
             postId: post.id,
         },
     })
