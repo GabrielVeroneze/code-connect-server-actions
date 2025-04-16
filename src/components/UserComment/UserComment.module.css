@@ -1,0 +1,25 @@
+.container {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.imagem {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+}
+
+.nome, .texto {
+    color: #171d1f;
+    font-size: 0.9375rem;
+    line-height: 23px;
+}
+
+.nome {
+    font-weight: 600;
+}
+
+.texto {
+    font-weight: 400;
+}
