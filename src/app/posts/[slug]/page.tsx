@@ -1,6 +1,7 @@
 import { Roboto_Mono } from 'next/font/google'
 import { getPostBySlug } from '@/services/postService'
 import { CardPost } from '@/components/CardPost'
+import { CommentList } from '@/components/CommentList'
 import styles from './page.module.css'
 
 const roboto_mono = Roboto_Mono({
@@ -36,6 +37,7 @@ const PagePost = async ({ params }: PagePostProps) => {
                     />
                 </div>
             </section>
+            <CommentList comments={post.comments} />
         </main>
     )
 }
