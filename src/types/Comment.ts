@@ -8,4 +8,6 @@ export interface Comment {
     post?: Post
     parent?: Comment | null
     children?: Comment[]
+    postId?: number
+    parentId?: number | null
 }
