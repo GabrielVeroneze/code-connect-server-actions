@@ -22,6 +22,9 @@
 
 .item {
     border-bottom: 1px solid #3e3e3f;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     padding-bottom: 1rem;
 }
 
