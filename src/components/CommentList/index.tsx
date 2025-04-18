@@ -1,4 +1,5 @@
 import { UserComment } from '@/components/UserComment'
+import { ModalReply } from '@/components/ModalReply'
 import { Replies } from '@/components/Replies'
 import { Comment } from '@/types/Comment'
 import styles from './CommentList.module.css'
@@ -15,6 +16,7 @@ export const CommentList = ({ comments }: CommentListProps) => {
                 {comments.map(comment => (
                     <li className={styles.item} key={comment.id}>
                         <UserComment comment={comment} />
+                        <ModalReply comment={comment} />
                         <Replies />
                     </li>
                 ))}
