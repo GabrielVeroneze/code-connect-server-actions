@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { Modal } from '@/components/Modal'
+import { Textarea } from '@/components/Textarea'
 import { SubmitButton } from '@/components/SubmitButton'
 import { IconButton } from '@/components/IconButton'
 import { ModalHandle } from '@/types/ModalHandle'
@@ -25,12 +26,11 @@ export const ModalComment = ({ action }: ModalCommentProps) => {
                     <h2 className={styles.titulo}>
                         Deixe seu comentário sobre o post:
                     </h2>
-                    <textarea
-                        className={styles.textarea}
+                    <Textarea
                         name="text"
                         placeholder="Digite seu comentário"
                         required
-                    ></textarea>
+                    />
                     <SubmitButton>Comentar</SubmitButton>
                 </form>
             </Modal>
