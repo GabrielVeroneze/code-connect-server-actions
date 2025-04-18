@@ -4,9 +4,10 @@ import styles from './UserComment.module.css'
 
 interface UserCommentProps {
     comment: Comment
+    tema?: 'claro' | 'escuro'
 }
 
-export const UserComment = ({ comment }: UserCommentProps) => {
+export const UserComment = ({ comment, tema = 'escuro' }: UserCommentProps) => {
     return (
         <div className={styles.container}>
             <Image
@@ -16,8 +17,12 @@ export const UserComment = ({ comment }: UserCommentProps) => {
                 height={32}
                 width={32}
             />
-            <strong className={styles.nome}>@{comment.author?.name}</strong>
-            <p className={styles.texto}>{comment.text}</p>
+            <strong className={`${styles.nome} ${styles[tema]}`}>
+                @{comment.author?.name}
+            </strong>
+            <p className={`${styles.texto} ${styles[tema]}`}>
+                {comment.text}
+            </p>
         </div>
     )
 }
