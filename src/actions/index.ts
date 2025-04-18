@@ -46,15 +46,21 @@ export async function postComment(post: Post, formData: FormData) {
     revalidatePath(`/${post.slug}`)
 }
 
-export async function postReply(post: Post, parent: Comment, formData: FormData) {
+export async function postReply(parent: Comment, formData: FormData) {
     const author = await db.user.findFirst({
         where: {
             username: 'anabeatriz_dev',
         },
     })
 
-    if (!author) {
-        throw new Error('Autor não encontrado.')
+    const post = await db.post.findFirst({
+        where: {
+            id: parent.postId,
+        },
+    })
+
+    if (!author || !post) {
+        throw new Error('Autor ou post não encontrado.')
     }
 
     const text = formData.get('text') as string
