@@ -18,6 +18,7 @@
 
 .nome {
     font-weight: 600;
+    min-width: max-content;
 }
 
 .texto {
